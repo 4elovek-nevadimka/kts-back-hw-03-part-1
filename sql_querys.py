@@ -24,6 +24,18 @@ limit 5
 # количество упоминаний которых меньше 50
 # В ответе должно быть 2 колонки [flight_no, count]
 TASK_2_QUERY = """
+select
+	flight_no,
+	count(1) as count
+from
+	flights
+group by
+	flight_no
+having
+	count(1) < 50
+order by
+	count desc
+limit 3
 """
 #  flight_no | count
 # -----------+-------
